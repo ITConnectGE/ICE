@@ -12,7 +12,7 @@ const { t } = useLocale()
   >
     <div class="relative aspect-[386/269] overflow-hidden">
       <img
-        :src="article.image"
+        :src="asset(article.image)"
         :alt="article.title"
         class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
         loading="lazy"

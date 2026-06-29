@@ -10,7 +10,7 @@ const { t } = useLocale()
     <div class="relative overflow-hidden rounded-card bg-surface-muted">
       <div class="aspect-[283/250] w-full">
         <img
-          :src="member.image"
+          :src="asset(member.image)"
           :alt="member.name"
           class="h-full w-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0"
           loading="lazy"

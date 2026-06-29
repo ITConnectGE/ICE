@@ -21,7 +21,7 @@ const { t } = useLocale()
 <template>
   <section class="relative isolate flex min-h-[340px] items-end overflow-hidden bg-primary pb-12 pt-32 sm:min-h-[380px] sm:pb-14 lg:min-h-[420px]">
     <img
-      :src="image"
+      :src="asset(image)"
       :alt="title"
       class="absolute inset-0 -z-10 h-full w-full object-cover"
       loading="eager"

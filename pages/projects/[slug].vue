@@ -31,7 +31,7 @@ useHead(() => ({ title: `${t(project.value!.title)} — ICE` }))
           <div class="lg:col-span-8">
             <div class="overflow-hidden rounded-card shadow-card">
               <div class="aspect-[16/9] w-full">
-                <img :src="photo(`${project.slug}-main`, 1200, 675)" :alt="t(project.title)" class="h-full w-full object-cover" />
+                <img :src="asset(project.image)" :alt="t(project.title)" class="h-full w-full object-cover" />
               </div>
             </div>
             <div class="prose mt-10 max-w-none">
@@ -45,7 +45,7 @@ useHead(() => ({ title: `${t(project.value!.title)} — ICE` }))
             <div class="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3">
               <div v-for="n in 3" :key="n" class="overflow-hidden rounded-card">
                 <div class="aspect-square w-full">
-                  <img :src="photo(`${project.slug}-g${n}`, 400, 400)" alt="" class="h-full w-full object-cover" loading="lazy" />
+                  <img :src="asset(photo(`${project.slug}-g${n}`, 400, 400))" alt="" class="h-full w-full object-cover" loading="lazy" />
                 </div>
               </div>
             </div>

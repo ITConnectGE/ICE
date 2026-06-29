@@ -39,7 +39,7 @@ useHead(() => ({ title: `${t(article.value!.title)} — ICE` }))
         <!-- lead image -->
         <div class="relative mt-10 overflow-hidden rounded-card shadow-card">
           <div class="aspect-[16/8] w-full">
-            <img :src="article.image" :alt="t(article.title)" class="h-full w-full object-cover" />
+            <img :src="asset(article.image)" :alt="t(article.title)" class="h-full w-full object-cover" />
           </div>
           <span class="absolute bottom-5 left-5 rounded-md bg-primary/85 px-3.5 py-1.5 text-caption font-semibold text-white backdrop-blur">
             {{ t(article.date) }}

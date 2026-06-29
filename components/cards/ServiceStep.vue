@@ -22,10 +22,10 @@ const { t } = useLocale()
       </p>
     </div>
 
-    <!-- Center number node -->
-    <div class="order-1 flex items-center gap-4 lg:order-none lg:col-start-2 lg:justify-center">
+    <!-- Center number (pink, sits on the dashed line) -->
+    <div class="order-1 flex items-center lg:order-none lg:col-start-2 lg:justify-center">
       <span
-        class="grid h-[68px] w-[68px] shrink-0 place-items-center rounded-full bg-primary font-display text-2xl font-bold text-white shadow-card ring-8 ring-white"
+        class="bg-white px-3 font-display text-[36px] font-bold leading-none text-secondary lg:text-[40px]"
       >
         {{ item.step }}
       </span>
@@ -38,7 +38,7 @@ const { t } = useLocale()
     >
       <div class="aspect-[500/270] w-full overflow-hidden rounded-card">
         <img
-          :src="item.image"
+          :src="asset(item.image)"
           :alt="item.title"
           class="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
           loading="lazy"

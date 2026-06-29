@@ -59,7 +59,7 @@ useHead(() => ({ title: `${t(product.value.title)} — ICE` }))
             <div class="grid gap-8 lg:grid-cols-2">
               <div class="overflow-hidden rounded-card shadow-card">
                 <div class="aspect-[813/620] w-full">
-                  <img :src="product.image" :alt="t(product.title)" class="h-full w-full object-cover" />
+                  <img :src="asset(product.image)" :alt="t(product.title)" class="h-full w-full object-cover" />
                 </div>
               </div>
               <div class="flex flex-col">
@@ -139,7 +139,7 @@ useHead(() => ({ title: `${t(product.value.title)} — ICE` }))
             class="group overflow-hidden rounded-card bg-white shadow-card ring-1 ring-line transition-all hover:-translate-y-1"
           >
             <div class="aspect-[4/3] w-full overflow-hidden">
-              <img :src="p.image" :alt="t(p.title)" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+              <img :src="asset(p.image)" :alt="t(p.title)" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
             </div>
             <div class="p-5">
               <h3 class="text-h4 text-primary group-hover:text-secondary">{{ t(p.title) }}</h3>

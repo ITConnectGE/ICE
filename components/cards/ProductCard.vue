@@ -11,7 +11,7 @@ const { t } = useLocale()
     class="group relative block aspect-[386/325] overflow-hidden rounded-card"
   >
     <img
-      :src="category.image"
+      :src="asset(category.image)"
       :alt="category.title"
       class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
       loading="lazy"

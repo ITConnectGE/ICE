@@ -18,7 +18,7 @@ withDefaults(
   >
     <div class="w-full" :style="{ aspectRatio: ratio }">
       <img
-        :src="image"
+        :src="asset(image)"
         :alt="label"
         class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
         loading="lazy"

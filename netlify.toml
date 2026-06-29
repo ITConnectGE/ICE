@@ -1,0 +1,7 @@
+# Netlify deploy config for the Nuxt static site
+[build]
+  command = "npm run generate"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"

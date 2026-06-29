@@ -65,7 +65,7 @@ function scrollNews(dir: number) {
       <img
         v-for="(img, i) in heroImages"
         :key="img"
-        :src="img"
+        :src="asset(img)"
         alt=""
         class="absolute inset-0 -z-10 h-full w-full object-cover object-center transition-opacity duration-1000 ease-in-out motion-reduce:transition-none"
         :class="i === heroIndex ? 'opacity-100' : 'opacity-0'"
@@ -130,19 +130,19 @@ function scrollNews(dir: number) {
         <div class="grid gap-8 lg:grid-cols-12 lg:items-center lg:gap-16">
           <div class="lg:col-span-5">
             <div class="relative">
-              <!-- decorative 3D bracket watermark (ICE logo motif) -->
+              <!-- decorative 3D bracket watermark (filled, ICE logo motif) -->
               <svg
-                viewBox="0 0 250 320"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linejoin="round"
+                viewBox="0 0 275 460"
+                fill="#e7ebf2"
                 aria-hidden="true"
-                class="pointer-events-none absolute -left-8 -top-12 hidden h-[300px] w-auto text-[#dde2ec] sm:block lg:-top-16 lg:h-[340px]"
+                class="pointer-events-none absolute -left-10 -top-14 hidden h-[320px] w-auto sm:block lg:-top-20 lg:h-[380px]"
               >
-                <path d="M170 70 L20 70 L20 300 L170 300 L170 260 L60 260 L60 110 L170 110 Z" />
-                <path d="M225 25 L75 25 L75 255 L225 255 L225 215 L115 215 L115 65 L225 65 Z" />
-                <path d="M20 70 L75 25 M20 300 L75 255 M170 70 L225 25 M170 300 L225 255 M60 110 L115 65 M170 110 L225 65 M170 260 L225 215 M60 260 L115 215" />
+                <!-- top extrusion face -->
+                <polygon points="30,90 175,90 245,40 100,40" />
+                <!-- right extrusion face -->
+                <polygon points="175,90 175,410 245,360 245,40" />
+                <!-- front frame (rectangular ring with through-hole) -->
+                <path fill-rule="evenodd" d="M30 90 H175 V410 H30 Z M78 160 H140 V340 H78 Z" />
               </svg>
 
               <UiSectionHeading :title="intro.title" :eyebrow="intro.eyebrow" class="relative" />
@@ -204,7 +204,7 @@ function scrollNews(dir: number) {
                 class="group relative w-[280px] shrink-0 overflow-hidden rounded-card sm:w-[300px]"
               >
                 <img
-                  :src="slide.image"
+                  :src="asset(slide.image)"
                   :alt="t(slide.label!)"
                   class="h-[400px] w-full object-cover transition-transform duration-700 group-hover:scale-105"
                   loading="lazy"
@@ -221,7 +221,7 @@ function scrollNews(dir: number) {
                 class="group relative block h-[400px] w-[280px] shrink-0 overflow-hidden rounded-card sm:w-[300px]"
               >
                 <img
-                  :src="slide.image"
+                  :src="asset(slide.image)"
                   :alt="t(slide.title!)"
                   class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                   loading="lazy"
@@ -287,7 +287,7 @@ function scrollNews(dir: number) {
             class="group relative block h-[320px] w-[80%] shrink-0 overflow-hidden rounded-card sm:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-3rem)/3)]"
           >
             <img
-              :src="c.image"
+              :src="asset(c.image)"
               :alt="t(c.title)"
               class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
               loading="lazy"
@@ -354,7 +354,7 @@ function scrollNews(dir: number) {
             :key="p.name"
             class="flex h-[150px] w-[260px] shrink-0 items-center justify-center rounded-card bg-surface-muted px-8 sm:w-[280px]"
           >
-            <img :src="p.logo" :alt="p.name" class="max-h-20 w-auto max-w-[180px] object-contain" loading="lazy" />
+            <img :src="asset(p.logo)" :alt="p.name" class="max-h-20 w-auto max-w-[180px] object-contain" loading="lazy" />
           </div>
         </div>
       </UiContainer>
@@ -365,7 +365,7 @@ function scrollNews(dir: number) {
       <!-- video banner -->
       <div class="relative isolate h-[260px] overflow-hidden bg-primary sm:h-[320px]">
         <img
-          :src="servicesBand.image"
+          :src="asset(servicesBand.image)"
           alt=""
           class="absolute inset-0 -z-10 h-full w-full object-cover"
           loading="lazy"
@@ -471,7 +471,7 @@ function scrollNews(dir: number) {
             >
               <div class="relative aspect-[16/11] overflow-hidden">
                 <img
-                  :src="a.image"
+                  :src="asset(a.image)"
                   :alt="t(a.title)"
                   class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                   loading="lazy"

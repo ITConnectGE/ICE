@@ -21,7 +21,7 @@ useHead(() => ({ title: t({ ka: 'ჩვენ შესახებ — ICE', en
           <UiReveal class="overflow-hidden rounded-card shadow-card">
             <div class="aspect-[583/477] w-full">
               <img
-                :src="photo('about-engineers', 800, 660)"
+                :src="asset(photo('about-engineers', 800, 660))"
                 :alt="t({ ka: 'ICE-ის გუნდი', en: 'ICE team' })"
                 class="h-full w-full object-cover"
                 loading="lazy"
@@ -78,7 +78,7 @@ useHead(() => ({ title: t({ ka: 'ჩვენ შესახებ — ICE', en
           <UiReveal class="order-2 overflow-hidden rounded-card shadow-card lg:order-1">
             <div class="aspect-[600/520] w-full">
               <img
-                :src="photo('otis-escalator', 820, 720)"
+                :src="asset(photo('otis-escalator', 820, 720))"
                 alt="OTIS"
                 class="h-full w-full object-cover"
                 loading="lazy"

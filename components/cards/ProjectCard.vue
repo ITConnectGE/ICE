@@ -1,51 +1,52 @@
 <script setup lang="ts">
 import type { Project } from '~/types'
 
-defineProps<{ project: Project; index?: number }>()
+defineProps<{ project: Project }>()
 const { t } = useLocale()
 </script>
 
 <template>
   <NuxtLink
     :to="`/projects/${project.slug}`"
-    class="group grid items-center gap-6 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] lg:gap-12"
+    class="group grid items-center gap-7 lg:grid-cols-[minmax(0,420px)_minmax(0,1fr)] lg:gap-14"
   >
-    <div class="relative overflow-hidden rounded-card">
-      <div class="aspect-[738/420] w-full">
+    <!-- image -->
+    <div class="overflow-hidden rounded-card">
+      <div class="aspect-[420/260] w-full">
         <img
-          :src="project.image"
-          :alt="project.title"
+          :src="asset(project.image)"
+          :alt="t(project.title)"
           class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
           loading="lazy"
         />
       </div>
-      <div class="absolute inset-0 bg-primary/10 transition-opacity duration-300 group-hover:opacity-0" />
-      <span
-        v-if="index !== undefined"
-        class="absolute left-5 top-5 font-display text-2xl font-bold text-white drop-shadow"
-      >
-        {{ String(index + 1).padStart(2, '0') }}
-      </span>
     </div>
 
+    <!-- content -->
     <div class="flex flex-col">
-      <div class="flex flex-wrap gap-2.5">
+      <h3 class="text-balance text-[26px] font-bold leading-[1.15] text-primary transition-colors group-hover:text-secondary sm:text-[32px] lg:text-[38px]">
+        {{ t(project.title) }}
+      </h3>
+      <p class="mt-4 line-clamp-4 text-body text-muted">{{ t(project.excerpt) }}</p>
+
+      <!-- badges -->
+      <div class="mt-6 flex flex-wrap gap-3">
         <span
           v-for="(tag, ti) in project.tags"
           :key="ti"
-          class="inline-flex items-center gap-1.5 rounded-full bg-surface-muted px-3 py-1.5 text-caption font-semibold text-primary"
+          class="inline-flex items-center gap-2 text-body-sm font-medium text-ink-soft"
         >
-          <AppIcon :name="tag.icon" :size="14" class="text-secondary" />
+          <span class="grid h-7 w-7 shrink-0 place-items-center rounded bg-surface-muted text-primary">
+            <AppIcon :name="tag.icon" :size="15" />
+          </span>
           {{ t(tag.label) }}
         </span>
       </div>
-      <h3 class="mt-4 text-balance text-[24px] font-bold leading-tight text-primary transition-colors group-hover:text-secondary lg:text-[28px]">
-        {{ t(project.title) }}
-      </h3>
-      <p class="mt-3 line-clamp-4 text-body text-muted">{{ t(project.excerpt) }}</p>
-      <span class="mt-6 link-underline text-primary">
+
+      <!-- share link -->
+      <span class="mt-7 link-underline text-primary">
         <AppIcon name="arrow-long" :size="24" :stroke="1.6" class="text-secondary" />
-        {{ t({ ka: 'პროექტის ნახვა', en: 'View project' }) }}
+        {{ t({ ka: 'გაზიარება', en: 'Share' }) }}
       </span>
     </div>
   </NuxtLink>

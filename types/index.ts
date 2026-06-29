@@ -10,7 +10,7 @@ export interface Project {
   title: I18nText
   excerpt: I18nText
   image: string
-  tags: { icon: 'pin' | 'building' | 'layers'; label: I18nText }[]
+  tags: { icon: string; label: I18nText }[]
 }
 
 export interface ProductCategory {

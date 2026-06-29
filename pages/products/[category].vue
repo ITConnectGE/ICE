@@ -66,7 +66,7 @@ useHead(() => ({ title: `${t(category.value!.title)} — ICE` }))
               >
                 <div class="aspect-[4/3] w-full overflow-hidden bg-surface-muted">
                   <img
-                    :src="item.image"
+                    :src="asset(item.image)"
                     :alt="item.title"
                     class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                     loading="lazy"
