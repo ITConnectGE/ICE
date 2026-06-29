@@ -111,6 +111,24 @@ withDefaults(
     <template v-else-if="name === 'check'">
       <polyline points="20 6 9 17 4 12" />
     </template>
+    <!-- target / mission -->
+    <template v-else-if="name === 'target'">
+      <circle cx="12" cy="12" r="9" />
+      <circle cx="12" cy="12" r="5" />
+      <circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none" />
+    </template>
+    <!-- eye / vision -->
+    <template v-else-if="name === 'eye'">
+      <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7Z" />
+      <circle cx="12" cy="12" r="3" />
+    </template>
+    <!-- gem / values -->
+    <template v-else-if="name === 'gem'">
+      <polygon points="12 3 20 9 12 21 4 9 12 3" />
+      <line x1="4" y1="9" x2="20" y2="9" />
+      <line x1="12" y1="3" x2="9.5" y2="9" />
+      <line x1="12" y1="3" x2="14.5" y2="9" />
+    </template>
     <!-- engineering / interior -->
     <template v-else-if="name === 'interior'">
       <path d="M3 21V10l9-7 9 7v11" />

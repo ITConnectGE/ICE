@@ -130,20 +130,13 @@ function scrollNews(dir: number) {
         <div class="grid gap-8 lg:grid-cols-12 lg:items-center lg:gap-16">
           <div class="lg:col-span-5">
             <div class="relative">
-              <!-- decorative 3D bracket watermark (filled, ICE logo motif) -->
-              <svg
-                viewBox="0 0 275 460"
-                fill="#e7ebf2"
+              <!-- decorative bracket watermark (ICE logo motif) -->
+              <img
+                :src="asset('/images/rectangle.png')"
+                alt=""
                 aria-hidden="true"
-                class="pointer-events-none absolute -left-10 -top-14 hidden h-[320px] w-auto sm:block lg:-top-20 lg:h-[380px]"
-              >
-                <!-- top extrusion face -->
-                <polygon points="30,90 175,90 245,40 100,40" />
-                <!-- right extrusion face -->
-                <polygon points="175,90 175,410 245,360 245,40" />
-                <!-- front frame (rectangular ring with through-hole) -->
-                <path fill-rule="evenodd" d="M30 90 H175 V410 H30 Z M78 160 H140 V340 H78 Z" />
-              </svg>
+                class="pointer-events-none absolute -left-10 -top-12 hidden h-[300px] w-auto select-none object-contain mix-blend-multiply sm:block lg:-top-32 lg:h-[360px]"
+              />
 
               <UiSectionHeading :title="intro.title" :eyebrow="intro.eyebrow" class="relative" />
             </div>

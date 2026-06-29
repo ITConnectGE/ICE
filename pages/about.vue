@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { aboutIntro, features, stats, otisOffer, team } from '~/data/about'
+import { aboutIntro, otisOffer, advantage, pillars, team } from '~/data/about'
 import { photo } from '~/data/images'
 
 const { t } = useLocale()
@@ -11,17 +11,16 @@ useHead(() => ({ title: t({ ka: 'ჩვენ შესახებ — ICE', en
     <LayoutPageHero
       :title="{ ka: 'ჩვენ შესახებ', en: 'About us' }"
       :image="photo('about-hero', 1600, 500)"
-      :breadcrumbs="[{ label: { ka: 'ჩვენ შესახებ', en: 'About us' } }]"
     />
 
-    <!-- Intro: image + text -->
-    <section class="py-20 lg:py-28">
+    <!-- Intro: image left + text right -->
+    <section class="py-16 lg:py-24">
       <UiContainer>
         <div class="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
           <UiReveal class="overflow-hidden rounded-card shadow-card">
-            <div class="aspect-[583/477] w-full">
+            <div class="aspect-[560/430] w-full">
               <img
-                :src="asset(photo('about-engineers', 800, 660))"
+                :src="asset(photo('about-engineers', 820, 660))"
                 :alt="t({ ka: 'ICE-ის გუნდი', en: 'ICE team' })"
                 class="h-full w-full object-cover"
                 loading="lazy"
@@ -30,103 +29,100 @@ useHead(() => ({ title: t({ ka: 'ჩვენ შესახებ — ICE', en
           </UiReveal>
           <div>
             <UiSectionHeading
-              :title="aboutIntro.title"
-              :eyebrow="{ ka: '13 წელი ბაზარზე', en: '13 years on the market' }"
+              :title="{ ka: 'გათბობა, კონდიცირება, ვენტილაცია', en: 'Heating, conditioning, ventilation' }"
             />
             <p class="mt-6 text-body-lg font-medium text-ink-soft">{{ t(aboutIntro.lead) }}</p>
             <div class="mt-4 space-y-4 text-body text-muted">
               <p v-for="(p, i) in aboutIntro.paragraphs" :key="i">{{ t(p) }}</p>
             </div>
-            <UiIceButton variant="solid" to="/services" class="mt-8">
-              {{ t({ ka: 'ჩვენი სერვისები', en: 'Our services' }) }}
+            <UiIceButton variant="filled" to="/contacts" class="mt-8">
+              {{ t({ ka: 'დაგვიკავშირდით', en: 'Contact us' }) }}
             </UiIceButton>
           </div>
         </div>
       </UiContainer>
     </section>
 
-    <!-- Stats band -->
-    <section class="bg-primary py-16 lg:py-20">
-      <UiContainer>
-        <div class="grid grid-cols-2 gap-8 lg:grid-cols-4">
-          <UiStatCounter v-for="(s, i) in stats" :key="i" :value="s.value" :label="s.label" tone="light" />
-        </div>
-      </UiContainer>
-    </section>
-
-    <!-- What we do / features -->
-    <section class="py-20 lg:py-28">
+    <!-- Elevators / escalators — big image + OTIS offer grid -->
+    <section class="pb-16 lg:pb-24">
       <UiContainer>
         <UiSectionHeading
-          :title="{ ka: 'რას ვსაქმიანობთ?', en: 'What we do' }"
-          :eyebrow="{ ka: 'მიმართულებები', en: 'Directions' }"
+          :title="{ ka: 'ლიფტები, ესკალატორები, ტრაველატორი', en: 'Elevators, escalators, travolators' }"
           align="center"
-          class="mx-auto items-center text-center"
-        >
-          {{ t({ ka: 'სრული საინჟინრო მომსახურება ერთ სივრცეში — დაგეგმვიდან ექსპლუატაციის შემდგომ მომსახურებამდე.', en: 'Full engineering services in one place — from planning to post-operation maintenance.' }) }}
-        </UiSectionHeading>
-        <div class="mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
-          <CardsFeatureCard v-for="(f, i) in features" :key="i" :feature="f" />
-        </div>
-      </UiContainer>
-    </section>
-
-    <!-- OTIS distributor band -->
-    <section class="bg-surface-muted py-20 lg:py-28">
-      <UiContainer>
-        <div class="grid gap-10 lg:grid-cols-2 lg:gap-16">
-          <UiReveal class="order-2 overflow-hidden rounded-card shadow-card lg:order-1">
-            <div class="aspect-[600/520] w-full">
-              <img
-                :src="asset(photo('otis-escalator', 820, 720))"
-                alt="OTIS"
-                class="h-full w-full object-cover"
-                loading="lazy"
-              />
-            </div>
-          </UiReveal>
-          <div class="order-1 lg:order-2">
-            <UiSectionHeading
-              :title="otisOffer.title"
-              :eyebrow="{ ka: 'ოფიციალური დისტრიბუტორი', en: 'Official distributor' }"
+          class="mx-auto"
+        />
+        <UiReveal class="mt-10 overflow-hidden rounded-card shadow-card lg:mt-12">
+          <div class="aspect-[1180/470] w-full">
+            <img
+              :src="asset(photo('otis-escalator', 1180, 470))"
+              alt="OTIS"
+              class="h-full w-full object-cover"
+              loading="lazy"
             />
-            <p class="mt-5 text-body-lg font-medium text-ink-soft">{{ t(otisOffer.intro) }}</p>
-            <ul class="mt-6 space-y-4">
-              <li v-for="(item, i) in otisOffer.items" :key="i" class="flex gap-4">
-                <span
-                  class="mt-1 grid h-7 w-7 shrink-0 place-items-center rounded-full bg-secondary text-white"
-                >
-                  <AppIcon name="check" :size="16" :stroke="2.4" />
-                </span>
-                <div>
-                  <p class="font-semibold text-primary">{{ t(item.title) }}</p>
-                  <p class="text-body-sm text-muted">{{ t(item.text) }}</p>
-                </div>
-              </li>
-            </ul>
+          </div>
+        </UiReveal>
+
+        <p class="mx-auto mt-10 max-w-3xl text-center text-body text-muted lg:mt-12">
+          {{ t(otisOffer.title) }}. {{ t(otisOffer.intro) }}
+        </p>
+
+        <div class="mx-auto mt-8 grid max-w-4xl gap-x-12 gap-y-8 sm:grid-cols-2">
+          <div v-for="(item, i) in otisOffer.items" :key="i" class="flex gap-3.5">
+            <AppIcon name="check" :size="22" :stroke="2.6" class="mt-0.5 text-secondary" />
+            <div>
+              <p class="font-semibold text-primary">{{ t(item.title) }}</p>
+              <p class="mt-1 text-body-sm text-muted">{{ t(item.text) }}</p>
+            </div>
           </div>
         </div>
       </UiContainer>
     </section>
 
+    <!-- Our advantage (navy band) -->
+    <section class="bg-primary py-16 lg:py-20">
+      <UiContainer>
+        <UiSectionHeading
+          :title="advantage.title"
+          tone="light"
+          align="center"
+          class="mx-auto max-w-4xl"
+        >
+          {{ t(advantage.text) }}
+        </UiSectionHeading>
+      </UiContainer>
+    </section>
+
+    <!-- Mission / Vision / Values -->
+    <section class="bg-surface-muted py-16 lg:py-24">
+      <UiContainer>
+        <div class="grid gap-10 md:grid-cols-3 lg:gap-14">
+          <UiReveal v-for="(p, i) in pillars" :key="i" :delay="i * 100" class="flex flex-col">
+            <span class="text-secondary">
+              <AppIcon :name="p.icon" :size="34" :stroke="1.7" />
+            </span>
+            <h3 class="mt-4 text-h4 text-primary">{{ t(p.title) }}</h3>
+            <p class="mt-3 text-body-sm text-muted">{{ t(p.text) }}</p>
+          </UiReveal>
+        </div>
+      </UiContainer>
+    </section>
+
     <!-- Team -->
-    <section class="py-20 lg:py-28">
+    <section class="py-16 lg:py-24">
       <UiContainer>
         <UiSectionHeading
           :title="{ ka: 'ჩვენი გუნდი', en: 'Our team' }"
-          :eyebrow="{ ka: 'პროფესიონალები', en: 'Professionals' }"
           align="center"
-          class="mx-auto items-center text-center"
+          class="mx-auto"
         >
           {{ t({ ka: 'ჩვენი გუნდის მიზანია ინოვაციების განვითარება და თანამედროვე ინჟინერიის სრულყოფილების მიღწევა.', en: 'Our team’s mission is to drive innovation and achieve excellence in modern engineering.' }) }}
         </UiSectionHeading>
-        <div class="mt-14 grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-4">
+        <div class="mt-12 grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-4">
           <UiReveal v-for="(m, i) in team" :key="m.name" :delay="(i % 4) * 80">
             <CardsTeamCard :member="m" />
           </UiReveal>
         </div>
       </UiContainer>
     </section>
-
   </div>
 </template>

@@ -1,4 +1,5 @@
 import type { Feature, Stat, TeamMember } from '~/types'
+import type { I18nText } from '~/composables/useLocale'
 import { photo } from './images'
 
 export const aboutIntro = {
@@ -92,6 +93,43 @@ export const otisOffer = {
   ],
 }
 
+/** Navy "Our advantage" band. */
+export const advantage = {
+  title: { ka: 'ჩვენი უპირატესობა', en: 'Our advantage' },
+  text: {
+    ka: 'ICE-ს მრავალწლიანი გამოცდილება და პროფესიონალიზმი დასტურდება იმ მასშტაბური პროექტებით, რომლებზეც კომპანია მუშაობს — „სთეფსი", „ჰოლიდეი ინ ბლუ სქაი თაუერი", „ორბი სითი", „მზიური გარდენსი" და „დარ თაუერი". ჩვენ ვქმნით მდგრად, უსაფრთხო და ენერგოეფექტურ საინჟინრო გადაწყვეტილებებს, რომლებიც დროს უსწრებს.',
+    en: 'ICE\'s years of experience and professionalism are proven by the large-scale projects the company delivers — "Steps", "Holiday Inn Blue Sky Tower", "Orbi City", "Mziuri Gardens" and "Dar Tower". We build durable, safe and energy-efficient engineering solutions that stay ahead of their time.',
+  },
+}
+
+/** Mission / Vision / Values trio. `icon` maps to AppIcon names. */
+export const pillars: { icon: string; title: I18nText; text: I18nText }[] = [
+  {
+    icon: 'target',
+    title: { ka: 'მისია', en: 'Mission' },
+    text: {
+      ka: 'პროდუქტისა და სერვისის უმაღლესი ხარისხით შევქმნათ კომფორტული, უსაფრთხო და ენერგოეფექტური გარემო ჩვენი მომხმარებლისთვის.',
+      en: 'To create a comfortable, safe and energy-efficient environment for our clients through the highest quality of products and service.',
+    },
+  },
+  {
+    icon: 'eye',
+    title: { ka: 'ხედვა', en: 'Vision' },
+    text: {
+      ka: 'ვიყოთ საქართველოს საინჟინრო ბაზრის ლიდერი — მუდმივად განვითარებადი, ინოვაციებსა და მომხმარებელზე ორიენტირებული პარტნიორი.',
+      en: 'To be the leader of Georgia\'s engineering market — a constantly evolving partner focused on innovation and the customer.',
+    },
+  },
+  {
+    icon: 'gem',
+    title: { ka: 'ფასეულობები', en: 'Values' },
+    text: {
+      ka: 'პროფესიონალიზმი, გუნდურობა, პასუხისმგებლობა და მომხმარებლის ნდობა — ღირებულებები, რომლებზეც ვდგავართ.',
+      en: 'Professionalism, teamwork, responsibility and customer trust — the values we stand on.',
+    },
+  },
+]
+
 const positions = [
   { ka: 'გენერალური დირექტორი', en: 'General Director' },
   { ka: 'ტექნიკური დირექტორი', en: 'Technical Director' },
@@ -112,6 +150,10 @@ const names = [
   'ანა ბერიძე',
   'ზურაბ ხარაზიშვილი',
   'მარიამ წიკლაური',
+  'ირაკლი ჩიქოვანი',
+  'სოფიო კაპანაძე',
+  'გიორგი ლომიძე',
+  'ეკატერინე ჯავახიშვილი',
 ]
 
 export const team: TeamMember[] = names.map((name, i) => ({
