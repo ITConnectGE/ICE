@@ -1,6 +1,12 @@
 <script setup lang="ts">
 import { aboutIntro, otisOffer, advantage, pillars, team } from '~/data/about'
-import { photo } from '~/data/images'
+
+const img = {
+  hero: '/images/aboutUs/about-us-main.png',
+  engineers:
+    '/images/aboutUs/high-angle-view-two-engineers-examining-project-new-building-table-office.png',
+  escalator: '/images/aboutUs/low-angle-view-escalator-subway-station%20(1).png',
+}
 
 const { t } = useLocale()
 useHead(() => ({ title: t({ ka: 'ჩვენ შესახებ — ICE', en: 'About us — ICE' }) }))
@@ -10,7 +16,7 @@ useHead(() => ({ title: t({ ka: 'ჩვენ შესახებ — ICE', en
   <div>
     <LayoutPageHero
       :title="{ ka: 'ჩვენ შესახებ', en: 'About us' }"
-      :image="photo('about-hero', 1600, 500)"
+      :image="img.hero"
     />
 
     <!-- Intro: image left + text right -->
@@ -20,7 +26,7 @@ useHead(() => ({ title: t({ ka: 'ჩვენ შესახებ — ICE', en
           <UiReveal class="overflow-hidden rounded-card shadow-card">
             <div class="aspect-[560/430] w-full">
               <img
-                :src="asset(photo('about-engineers', 820, 660))"
+                :src="asset(img.engineers)"
                 :alt="t({ ka: 'ICE-ის გუნდი', en: 'ICE team' })"
                 class="h-full w-full object-cover"
                 loading="lazy"
@@ -54,7 +60,7 @@ useHead(() => ({ title: t({ ka: 'ჩვენ შესახებ — ICE', en
         <UiReveal class="mt-10 overflow-hidden rounded-card shadow-card lg:mt-12">
           <div class="aspect-[1180/470] w-full">
             <img
-              :src="asset(photo('otis-escalator', 1180, 470))"
+              :src="asset(img.escalator)"
               alt="OTIS"
               class="h-full w-full object-cover"
               loading="lazy"
