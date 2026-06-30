@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { news } from '~/data/news'
-import { photo } from '~/data/images'
 
 const { t } = useLocale()
 useHead(() => ({ title: t({ ka: 'სიახლეები — ICE', en: 'News — ICE' }) }))
@@ -10,7 +9,7 @@ useHead(() => ({ title: t({ ka: 'სიახლეები — ICE', en: 'News
   <div>
     <LayoutPageHero
       :title="{ ka: 'სიახლეები', en: 'News' }"
-      :image="photo('news-hero', 1600, 500)"
+      image="/images/projects/projects-main.png"
       :breadcrumbs="[{ label: { ka: 'სიახლეები', en: 'News' } }]"
     />
 

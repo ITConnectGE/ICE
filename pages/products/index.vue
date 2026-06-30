@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { productCategories } from '~/data/products'
-import { photo } from '~/data/images'
 
 const { t } = useLocale()
 useHead(() => ({ title: t({ ka: 'პროდუქცია — ICE', en: 'Products — ICE' }) }))
@@ -10,7 +9,7 @@ useHead(() => ({ title: t({ ka: 'პროდუქცია — ICE', en: 'Prod
   <div>
     <LayoutPageHero
       :title="{ ka: 'ჩვენი პროდუქცია', en: 'Our products' }"
-      :image="photo('products-hero', 1600, 500)"
+      image="/images/projects/projects-main.png"
       :breadcrumbs="[{ label: { ka: 'პროდუქცია', en: 'Products' } }]"
       :subtitle="{ ka: 'მსოფლიოს წამყვანი ბრენდების სრული პროდუქტთა ხაზი — ერთ სივრცეში.', en: 'A full product line from the world’s leading brands — in one place.' }"
     />

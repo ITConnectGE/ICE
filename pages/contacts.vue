@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { reactive, ref } from 'vue'
 import { contact } from '~/data/site'
-import { photo } from '~/data/images'
 
 const { t } = useLocale()
 useHead(() => ({ title: t({ ka: 'კონტაქტი — ICE', en: 'Contact — ICE' }) }))
@@ -28,7 +27,7 @@ function submit() {
   <div>
     <LayoutPageHero
       :title="{ ka: 'კონტაქტი', en: 'Contact' }"
-      :image="photo('contacts-hero', 1600, 500)"
+      image="/images/projects/projects-main.png"
       :breadcrumbs="[{ label: { ka: 'კონტაქტი', en: 'Contact' } }]"
     />
 

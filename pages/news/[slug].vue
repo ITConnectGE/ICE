@@ -25,7 +25,7 @@ useHead(() => ({ title: `${t(article.value!.title)} — ICE` }))
   <article v-if="article">
     <LayoutPageHero
       :title="{ ka: 'სიახლე', en: 'News' }"
-      :image="article.image"
+      image="/images/projects/projects-main.png"
       :breadcrumbs="[{ label: { ka: 'სიახლეები', en: 'News' }, to: '/news' }, { label: article.title }]"
     />
 
