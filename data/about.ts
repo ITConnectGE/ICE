@@ -159,5 +159,5 @@ export const team: TeamMember[] = names.map((name, i) => ({
   name,
   position: positions[i % positions.length],
   // Placeholder headshot for every member until individual photos are provided.
-  image: '/images/aboutUs/avatar.png',
+  image: '/images/aboutUs/avatar.jpg',
 }))
