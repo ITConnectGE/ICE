@@ -41,7 +41,7 @@ useHead(() => ({ title: t({ ka: 'ჩვენ შესახებ — ICE', en
             <div class="mt-4 space-y-4 text-body text-muted">
               <p v-for="(p, i) in aboutIntro.paragraphs" :key="i">{{ t(p) }}</p>
             </div>
-            <UiIceButton variant="filled" to="/contacts" class="mt-8">
+            <UiIceButton variant="pink" to="/contacts" class="mt-8">
               {{ t({ ka: 'დაგვიკავშირდით', en: 'Contact us' }) }}
             </UiIceButton>
           </div>
