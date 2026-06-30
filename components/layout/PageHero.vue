@@ -30,10 +30,10 @@ const { t } = useLocale()
     <div class="absolute inset-0 -z-10 bg-gradient-to-t from-primary/80 via-primary/10 to-transparent" />
 
     <UiContainer class="relative">
-      <!-- white top-left corner stripes accent (sits above the title) -->
+      <!-- white crosshair accent (two thin lines crossing) above-left of the title -->
       <div class="relative">
-        <span class="absolute -left-5 -top-9 hidden h-10 w-[3px] bg-white sm:block" />
-        <span class="absolute -left-5 -top-9 hidden h-[3px] w-14 bg-white sm:block" />
+        <span class="absolute -left-4 -top-10 hidden h-[72px] w-[2px] bg-white sm:block" />
+        <span class="absolute -left-14 -top-2 hidden h-[2px] w-20 bg-white sm:block" />
 
         <nav v-if="breadcrumbs.length" class="mb-4 flex flex-wrap items-center gap-2 text-body-sm text-white/70">
           <NuxtLink to="/" class="transition-colors hover:text-secondary">
