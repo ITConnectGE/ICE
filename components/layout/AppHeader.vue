@@ -31,7 +31,7 @@ onBeforeUnmount(() => window.removeEventListener('scroll', onScroll))
           class="hidden items-center gap-2 px-3 text-body-sm font-medium transition-colors sm:inline-flex"
           :class="scrolled ? 'text-ink-soft hover:text-secondary' : 'text-white/90 hover:text-white'"
         >
-          <AppIcon name="phone" :size="16" class="text-secondary" />
+          <img :src="asset('/images/phone_vector.png')" alt="" class="h-4 w-4 object-contain" />
           {{ t({ ka: 'კონტაქტი', en: 'Contact' }) }}
         </NuxtLink>
 
@@ -45,7 +45,11 @@ onBeforeUnmount(() => window.removeEventListener('scroll', onScroll))
           <AppIcon name="search" :size="20" />
         </button>
 
+        <span class="hidden h-5 w-px sm:block" :class="scrolled ? 'bg-line' : 'bg-white/30'" />
+
         <LayoutLanguageSwitcher :tone="scrolled ? 'dark' : 'light'" class="hidden sm:block" />
+
+        <span class="hidden h-5 w-px sm:block" :class="scrolled ? 'bg-line' : 'bg-white/30'" />
 
         <button
           type="button"

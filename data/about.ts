@@ -1,6 +1,5 @@
 import type { Feature, Stat, TeamMember } from '~/types'
 import type { I18nText } from '~/composables/useLocale'
-import { photo } from './images'
 
 export const aboutIntro = {
   title: { ka: 'ჩვენ შესახებ', en: 'About us' },
@@ -159,5 +158,6 @@ const names = [
 export const team: TeamMember[] = names.map((name, i) => ({
   name,
   position: positions[i % positions.length],
-  image: photo(`team-${i}`, 280, 320),
+  // Placeholder headshot for every member until individual photos are provided.
+  image: '/images/aboutUs/template.png',
 }))
