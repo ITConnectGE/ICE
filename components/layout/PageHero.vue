@@ -31,37 +31,38 @@ const { t } = useLocale()
 
     <UiContainer class="relative">
       <div class="relative">
-        <nav v-if="breadcrumbs.length" class="mb-4 flex flex-wrap items-center gap-2 text-body-sm text-white/70">
-          <NuxtLink to="/" class="transition-colors hover:text-secondary">
-            {{ t({ ka: 'მთავარი', en: 'Home' }) }}
-          </NuxtLink>
-          <template v-for="(crumb, ci) in breadcrumbs" :key="ci">
-            <AppIcon name="chevron-right" :size="14" class="text-white/40" />
-            <NuxtLink
-              v-if="crumb.to"
-              :to="crumb.to"
-              class="transition-colors hover:text-secondary"
-              >{{ t(crumb.label) }}</NuxtLink
-            >
-            <span v-else class="text-white">{{ t(crumb.label) }}</span>
-          </template>
-        </nav>
+        <!-- L-shaped corner frame: breadcrumb + title sit inside the top-left corner -->
+        <div class="relative w-fit pl-7 pt-6">
+          <span
+            class="pointer-events-none absolute left-0 top-0 h-[calc(100%+1rem)] w-[1.5px] bg-white/50"
+            aria-hidden="true"
+          />
+          <span
+            class="pointer-events-none absolute left-0 top-0 h-[1.5px] w-[calc(100%+1.5rem)] bg-white/50"
+            aria-hidden="true"
+          />
 
-        <!-- L-shaped corner frame: the title sits inside the top-left corner -->
-        <div class="relative w-fit pl-7 pt-7">
-          <span
-            class="pointer-events-none absolute left-0 top-0 h-[calc(100%+1rem)] w-[2px] bg-white/50"
-            aria-hidden="true"
-          />
-          <span
-            class="pointer-events-none absolute left-0 top-0 h-[2px] w-[calc(100%+1.5rem)] bg-white/50"
-            aria-hidden="true"
-          />
+          <nav v-if="breadcrumbs.length" class="mb-3 flex flex-wrap items-center gap-2 text-body-sm text-white/70">
+            <NuxtLink to="/" class="transition-colors hover:text-secondary">
+              {{ t({ ka: 'მთავარი', en: 'Home' }) }}
+            </NuxtLink>
+            <template v-for="(crumb, ci) in breadcrumbs" :key="ci">
+              <AppIcon name="chevron-right" :size="14" class="text-white/40" />
+              <NuxtLink
+                v-if="crumb.to"
+                :to="crumb.to"
+                class="transition-colors hover:text-secondary"
+                >{{ t(crumb.label) }}</NuxtLink
+              >
+              <span v-else class="text-white">{{ t(crumb.label) }}</span>
+            </template>
+          </nav>
+
           <h1 class="max-w-3xl text-balance text-[32px] !text-white sm:text-[42px] lg:text-h1">
             {{ t(title) }}
           </h1>
         </div>
-        <p v-if="subtitle" class="mt-4 max-w-2xl text-body-lg text-white/75">{{ t(subtitle) }}</p>
+        <!-- <p v-if="subtitle" class="mt-4 max-w-2xl text-body-lg text-white/75">{{ t(subtitle) }}</p> -->
       </div>
     </UiContainer>
   </section>
