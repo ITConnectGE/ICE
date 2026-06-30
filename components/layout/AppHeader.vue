@@ -22,15 +22,6 @@ onBeforeUnmount(() => window.removeEventListener('scroll', onScroll))
     :class="scrolled ? 'bg-white/95 py-2.5 shadow-[0_8px_30px_-18px_rgba(4,30,66,0.4)] backdrop-blur' : 'py-4'"
   >
     <!-- decorative crossing lines (visible over the dark hero, hidden once scrolled) -->
-    <div
-      class="pointer-events-none absolute inset-0 transition-opacity duration-300"
-      :class="scrolled ? 'opacity-0' : 'opacity-100'"
-      aria-hidden="true"
-    >
-      <span class="absolute left-[70px] top-0 h-full w-px bg-white/25" />
-      <span class="absolute left-0 top-[60%] h-px w-1/2 bg-white/25" />
-    </div>
-
     <UiContainer class="relative flex items-center justify-between gap-4">
       <AppLogo :variant="scrolled ? 'dark' : 'light'" />
 

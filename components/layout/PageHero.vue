@@ -19,7 +19,7 @@ const { t } = useLocale()
 </script>
 
 <template>
-  <section class="relative isolate flex min-h-[340px] items-end overflow-hidden bg-primary pb-12 pt-32 sm:min-h-[380px] sm:pb-14 lg:min-h-[420px]">
+  <section class="relative isolate flex min-h-[340px] items-center overflow-hidden bg-primary pb-12 pt-28 sm:min-h-[380px] lg:min-h-[420px]">
     <img
       :src="asset(image)"
       :alt="title"
@@ -47,12 +47,20 @@ const { t } = useLocale()
           </template>
         </nav>
 
-        <!-- decorative accent line above the title -->
-        <div class="mb-7 h-[2px] w-[150px] bg-white/70" />
-
-        <h1 class="max-w-3xl text-balance text-[32px] !text-white sm:text-[42px] lg:text-h1">
-          {{ t(title) }}
-        </h1>
+        <!-- L-shaped corner frame: the title sits inside the top-left corner -->
+        <div class="relative w-fit pl-7 pt-7">
+          <span
+            class="pointer-events-none absolute left-0 top-0 h-[calc(100%+1rem)] w-[2px] bg-white/50"
+            aria-hidden="true"
+          />
+          <span
+            class="pointer-events-none absolute left-0 top-0 h-[2px] w-[calc(100%+1.5rem)] bg-white/50"
+            aria-hidden="true"
+          />
+          <h1 class="max-w-3xl text-balance text-[32px] !text-white sm:text-[42px] lg:text-h1">
+            {{ t(title) }}
+          </h1>
+        </div>
         <p v-if="subtitle" class="mt-4 max-w-2xl text-body-lg text-white/75">{{ t(subtitle) }}</p>
       </div>
     </UiContainer>
